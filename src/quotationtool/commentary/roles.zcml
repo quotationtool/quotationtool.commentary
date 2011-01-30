@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="quotationtool">
+
+  <grant
+      permission="quotationtool.commentary.AddComment"
+      role="quotationtool.Member"
+      />
+
+  <grant
+      permission="quotationtool.commentary.AddComment"
+      role="quotationtool.Editor"
+      />
+
+  <grant
+      permission="quotationtool.commentary.EditComment"
+      role="quotationtool.Editor"
+      />
+
+  <grant
+      permission="quotationtool.commentary.EditComment"
+      role="quotationtool.Creator"
+      />
+
+</configure>

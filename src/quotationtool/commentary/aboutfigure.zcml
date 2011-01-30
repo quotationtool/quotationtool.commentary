@@ -1,0 +1,66 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="quotationtool">
+
+  <!-- BBB: remove this in 0.2.0 -->
+
+  <interface
+      interface=".interfaces.ICommentAboutFigureContainer"
+      type="zope.app.content.interfaces.IContentType"
+      />
+
+  <class class=".aboutfigure.CommentAboutFigureContainer">
+    <implements
+        interface="zope.location.interfaces.ILocation"
+	/>
+    <implements
+        interface="zope.annotation.interfaces.IAttributeAnnotatable"
+	/>
+    <allow
+        interface="zope.app.container.interfaces.IReadContainer" 
+        />
+    <require
+        permission="zope.ManageContent"
+        interface="zope.app.container.interfaces.IWriteContainer"
+        />
+    <allow
+	interface=".interfaces.ICommentaryContainer"
+	/>
+    <require
+        permission="zope.ManageSite"
+	set_schema=".interfaces.ICommentaryContainer"
+	/>
+  </class>
+
+
+  <interface
+      interface=".interfaces.ICommentAboutFigure"
+      type="zope.app.content.interfaces.IContentType"
+      name="Comment about figure"
+      />
+
+  <class class=".aboutfigure.CommentAboutFigure">
+    <implements
+	interface="zope.location.interfaces.ILocation"
+	/>
+    <implements
+	interface="zope.annotation.interfaces.IAttributeAnnotatable"
+	/>
+    <allow
+	interface="zope.annotation.interfaces.IAttributeAnnotatable"
+	/>
+    <require
+	permission="zope.ManageContent"
+	set_schema="zope.annotation.interfaces.IAttributeAnnotatable"
+	/>
+    <allow
+	interface=".interfaces.ICommentAboutFigure"
+	/>
+    <require
+	permission="zope.ManageContent"
+	set_schema=".interfaces.ICommentAboutFigure"
+	/>
+  </class>
+
+
+</configure>  

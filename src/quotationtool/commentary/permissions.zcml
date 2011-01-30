@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="quotationtool">
+
+  <permission
+      id="quotationtool.commentary.AddComment"
+      title="[add-comment-permission-title] 
+	     Write a commentary"
+      />
+
+  <permission
+      id="quotationtool.commentary.EditComment"
+      title="[edit-comment-permission-title]
+	     Edit commentaries"
+      />
+      
+</configure>
