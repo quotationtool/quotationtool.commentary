@@ -1,0 +1,14 @@
+    <div 
+	class="comment-meta"
+	metal:define-macro="comment-meta"
+	tal:define="created context/zope:created;
+		     modified context/zope:modified;
+		     formatter python:request.locale.dates.getFormatter('dateTime')">
+      <span 
+	  i18n:translate="comment-creator">
+	<span class="creator" i18n:name="creator"
+	      tal:content="context/quotationtool:creator | default">Unknown</span>,
+	<span class="created" i18n:name="date"
+	      tal:content="python:formatter.format(created)">1968/01/01</span>
+      </span>
+    </div>

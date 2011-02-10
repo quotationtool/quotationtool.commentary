@@ -1,0 +1,33 @@
+<configure
+    xmlns='http://namespaces.zope.org/browser'
+    xmlns:zope='http://namespaces.zope.org/zope'
+    xmlns:z3c='http://namespaces.zope.org/z3c'
+    xmlns:i18n='http://namespaces.zope.org/i18n'
+    i18n_domain="quotationtool">
+
+  <zope:view
+      for="..interfaces.IComment"
+      name="commentmeta"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      factory=".view.MetaView"
+      />
+
+  <zope:view
+      for="..interfaces.IComment"
+      name="details"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      factory=".view.DetailsView"
+      />
+
+  <zope:view
+      for="..interfaces.IComment"
+      name="list"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      factory=".view.ListView"
+      />
+
+
+</configure>

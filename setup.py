@@ -58,6 +58,7 @@ setup(
         'zope.security',
         'zope.securitypolicy',
         'zope.app.schema',
+        'zope.publisher',
 
         'quotationtool.site',
         'quotationtool.security',

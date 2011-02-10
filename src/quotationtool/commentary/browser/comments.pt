@@ -1,0 +1,22 @@
+<div class="commentary list-of-comments">
+
+  <div
+      tal:repeat="comment view/comments">
+    <div
+	class="comment-preview"
+	tal:content="structure comment/@@list">
+      There are items in this database which ...
+    </div>
+   </div>
+
+   <div
+       class="add-content-options add-comment"
+       tal:condition="view/add_comment_option">
+     <a  href="addComment.html"
+	 tal:attributes="href string:${context/@@absolute_url}/@@addComment.html"
+	 i18n:translate="add-comment">
+       Add a Comment
+     </a>
+   </div>
+
+</div>

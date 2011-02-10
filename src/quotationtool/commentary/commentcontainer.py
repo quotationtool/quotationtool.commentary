@@ -4,9 +4,10 @@ from zope.container.btree import BTreeContainer
 from zope.schema.fieldproperty import FieldProperty
 from zope.exceptions.interfaces import UserError
 from zope.dublincore.interfaces import IWriteZopeDublinCore
+from zope.container.contained import NameChooser
+from zope.container.interfaces import INameChooser
 
 import interfaces
-from i18n import _
 from quotationtool.site.interfaces import INewQuotationtoolSiteEvent
 
 
@@ -21,11 +22,20 @@ class CommentContainer(BTreeContainer):
     _count = FieldProperty(interfaces.ICommentContainer['_count'])
 
     def __setitem__(self, key, value):
-        if key != unicode(_count + 1):
-            raise UserError(_(u"You want to use $KEY as key for the comment, but it should be %COUNT!", mapping={'KEY': key, 'COUNT': self.count}))
-        super(CommentContainer, self).__setitem(key, value)
+        super(CommentContainer, self).__setitem__(key, value)
         self._count += 1
             
+
+class CommentNameChooser(NameChooser):
+    """ A name chooser for comment objects in the container."""
+    
+    zope.interface.implements(INameChooser)
+    zope.component.adapts(interfaces.ICommentContainer)
+
+    def chooseName(self, name, obj):
+        self.checkName(unicode(self.context._count + 1), obj)
+        return unicode(self.context._count + 1)
+
 
 @zope.component.adapter(INewQuotationtoolSiteEvent)
 def createCommentContainer(event):

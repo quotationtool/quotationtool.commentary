@@ -1,0 +1,56 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="quotationtool">
+
+
+  <z3c:contextMenuItem
+      for="..interfaces.ICommentable"
+      title="[itemtabs-commentable-comments] Comments"
+      name="commentable-comments"
+      permission="zope.View"
+      class=".tabs.CommentableTab"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      manager="quotationtool.skin.interfaces.IItemTabs"
+      viewName="@@comments.html#tabs"
+      weight="2010"
+      />
+  <adapter
+      for="..interfaces.ICommentable
+           zope.publisher.interfaces.browser.IBrowserRequest
+           .pagelet.CommentsPagelet
+           z3c.menu.ready2go.interfaces.IMenuManager
+           .tabs.ICommentableTab"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      />
+  <adapter
+      for="..interfaces.ICommentable
+           zope.publisher.interfaces.browser.IBrowserRequest
+           .pagelet.SingleCommentPagelet
+           z3c.menu.ready2go.interfaces.IMenuManager
+           .tabs.ICommentableTab"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      />
+  <adapter
+      for="..interfaces.ICommentable
+           zope.publisher.interfaces.browser.IBrowserRequest
+           .form.AddComment
+           z3c.menu.ready2go.interfaces.IMenuManager
+           .tabs.ICommentableTab"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      />
+  <adapter
+      for="..interfaces.ICommentable
+           zope.publisher.interfaces.browser.IBrowserRequest
+           .form.EditComment
+           z3c.menu.ready2go.interfaces.IMenuManager
+           .tabs.ICommentableTab"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      />
+
+</configure>

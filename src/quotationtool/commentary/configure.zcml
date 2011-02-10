@@ -6,7 +6,8 @@
   <include file="dependencies.zcml"/>
 
   <include file="permissions.zcml" />
-  <include file="roles.zcml" />
+  <!-- Include in your app!
+      include file="roles.zcml" /-->
 
   <interface
       interface=".interfaces.ICommentContainer"
@@ -35,6 +36,12 @@
 	set_schema=".interfaces.ICommentaryContainer"
 	/>
   </class>
+
+  <adapter
+      factory=".commentcontainer.CommentNameChooser"
+      provides="zope.container.interfaces.INameChooser"
+      for=".interfaces.ICommentContainer"
+      />
 
   <subscriber handler=".commentcontainer.createCommentContainer"/>
 
@@ -95,6 +102,6 @@
       />
 
 
-  <!--include package=".browser"/-->
+  <include package=".browser"/>
 
 </configure>

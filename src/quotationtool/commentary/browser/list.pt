@@ -1,0 +1,17 @@
+<div 
+    i18n:domain="quotationtool"
+    class="list-item commentary" >
+  <div class="preview">
+    <div
+	class="commentary-text"
+	tal:content="structure view/renderComment"
+	>Commentary Text</div>
+    <a href=""
+       class="content"
+       tal:attributes="href string:${context/about/@@absolute_url}/@@comment.html?id=${view/id}"
+       i18n:translate="more-link"
+       >[Read more]</a>
+    <hr class="commentary-ruler"/>
+    <div tal:content="structure context/@@commentmeta"/>
+  </div>
+</div>

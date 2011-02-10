@@ -1,0 +1,47 @@
+<configure
+    xmlns='http://namespaces.zope.org/browser'
+    xmlns:zope='http://namespaces.zope.org/zope'
+    xmlns:z3c='http://namespaces.zope.org/z3c'
+    xmlns:i18n='http://namespaces.zope.org/i18n'
+    i18n_domain="quotationtool">
+
+  <z3c:pagelet
+      for="..interfaces.ICommentContainer"
+      name="index.html"
+      class=".pagelet.CommentContainerFrontpage"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+  <z3c:template
+      for=".pagelet.CommentContainerFrontpage"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      template="container.pt"
+      />
+
+  <z3c:pagelet
+      for="..interfaces.ICommentable"
+      name="comments.html"
+      class=".pagelet.CommentsPagelet"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+  <z3c:template
+      for=".pagelet.CommentsPagelet"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      template="comments.pt"
+      />
+
+  <z3c:pagelet
+      for="..interfaces.ICommentable"
+      name="comment.html"
+      class=".pagelet.SingleCommentPagelet"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+  <z3c:template
+      for=".pagelet.SingleCommentPagelet"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      template="details.pt"
+      />
+
+</configure>

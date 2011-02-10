@@ -1,0 +1,9 @@
+<div i18n:domain="quotationtool">
+
+  <h1 i18n:translate="commentcontainer-label">Commentary</h1>
+
+  <p i18n:translate="commentcontainer-desc">
+    Comments are accessible in the context of items only.
+  </p>
+
+</div>

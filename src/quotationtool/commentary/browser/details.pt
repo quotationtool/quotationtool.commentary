@@ -1,0 +1,35 @@
+<div class="details commentary" 
+     i18n:domain="quotationtool">
+
+  <div 
+      class="about"
+      tal:condition="view/display-about|nothing">
+    <div 
+	class="commentary-about"
+	tal:content="structure view/comment/about/@@details">
+      Author: Title ...
+    </div>
+  </div>
+
+  <div class="body">
+ 
+   <div 
+	class="commentary-text"
+	tal:content="structure view/renderComment">
+      Quotation Text
+    </div>
+
+    <hr class="commentary-ruler"/>
+
+    <div tal:content="structure view/comment/@@commentmeta"/>
+
+    <div
+	class="more-links">
+      <a href="" class="content"
+	 tal:attributes="href string:${view/comment/about/@@absolute_url}/@@comments.html"
+	 i18n:translate="commentable-object-link"
+	 >[Return to/See Commented Item]</a>
+    </div>
+
+  </div>
+</div>
