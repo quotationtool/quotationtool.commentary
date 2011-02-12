@@ -63,8 +63,7 @@ class SingleCommentPagelet(BrowserPagelet):
         source = zope.component.createObject(
             self.comment.source_type, 
             self.comment.comment)
-        #renderer = zope.component.getMultiAdapter(
-        #    (removeAllProxies(source), self.request),
-        #    IHTMLRenderer, name = u'')
-        renderer = IHTMLRenderer(source)
+        renderer = zope.component.getMultiAdapter(
+            (removeAllProxies(source), self.request),
+            IHTMLRenderer, name = u'')
         return renderer.render(limit = self.limit)

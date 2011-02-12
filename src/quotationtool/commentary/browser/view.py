@@ -28,10 +28,9 @@ class RenderComment(object):
         source = zope.component.createObject(
             self.context.source_type, 
             self.context.comment)
-        #renderer = zope.component.getMultiAdapter(
-        #    (removeAllProxies(source), self.request),
-        #    IHTMLRenderer, name = u'')
-        renderer = IHTMLRenderer(source)
+        renderer = zope.component.getMultiAdapter(
+            (removeAllProxies(source), self.request),
+            IHTMLRenderer, name = u'')
         return renderer.render(limit = self.limit)
 
 
