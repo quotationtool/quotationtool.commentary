@@ -18,7 +18,17 @@
       name="editComment.html"
       class=".form.AddComment"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="quotationtool.commentary.AddComment"
+      permission="quotationtool.commentary.EditComment"
       /-->
+
+  <zope:resourceLibrary
+      name="quotationtool.tinymce.Comment"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      require="quotationtool.tinymce">
+    <directory
+	source="js"
+	include="comment.js"
+	/>
+  </zope:resourceLibrary>
 
 </configure>

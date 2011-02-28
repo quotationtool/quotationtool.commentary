@@ -65,6 +65,7 @@ setup(
         'quotationtool.renderer',
         'quotationtool.relation',
         'quotationtool.skin',
+        'quotationtool.tinymce',
 
         'z3c.template',
         'z3c.macro',

@@ -88,6 +88,13 @@
       />
   
   <utility
+      factory=".source.htmlCommentFactory"
+      name="html"
+      provides=".interfaces.ICommentSourceFactory"
+      permission="zope.Public"
+      />
+
+  <utility
       factory=".source.plainTextCommentFactory"
       name="plaintext"
       provides=".interfaces.ICommentSourceFactory"

@@ -9,7 +9,7 @@ from z3c.form import field
 from zope.securitypolicy.interfaces import IPrincipalRoleManager
 from zope.container.interfaces import INameChooser
 from zope.traversing.browser import absoluteURL
-
+import zc.resourcelibrary
 
 from quotationtool.renderer.interfaces import IHTMLRenderer
 from quotationtool.skin.interfaces import ITabbedContentLayout
@@ -23,13 +23,18 @@ class AddComment(form.AddForm):
 
     zope.interface.implements(ITabbedContentLayout)
 
-    fields = field.Fields(interfaces.IComment).select('comment', 'source_type')
+    fields = field.Fields(interfaces.IComment).select('comment')
 
     label = _('comment-add-label', u"Add a comment")
+
+    def __init__(self, context, request):
+        super(AddComment, self).__init__(context, request)
+        zc.resourcelibrary.need('quotationtool.tinymce.Comment')
 
     def create(self, data):
         obj = Comment()
         form.applyChanges(self, obj, data)
+        obj.source_type = 'html'
         obj.about = removeAllProxies(self.context)
 
         # Grant the current user the Edit permission by assigning him

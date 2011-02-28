@@ -23,6 +23,7 @@
   <include package="z3c.macro"/>
 
   <include package="quotationtool.skin"/>
+  <include package="quotationtool.tinymce"/>
 
 
 </configure>

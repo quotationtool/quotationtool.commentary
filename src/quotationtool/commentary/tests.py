@@ -49,6 +49,7 @@ class SourceTests(PlacelessSetup, unittest.TestCase):
             vocabulary = 'quotationtool.commentary.CommentSourceTypes')
         self.assertTrue(field.validate(u'plaintext') is None)
         self.assertTrue(field.validate(u'rest') is None)
+        self.assertTrue(field.validate(u'html') is None)
         self.assertRaises(zope.schema.interfaces.ConstraintNotSatisfied, 
                           field.validate, (u'fails'))
         # if there is an other type registered in the renderer
