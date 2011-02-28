@@ -12,10 +12,10 @@
       role="quotationtool.Editor"
       />
 
-  <grant
+  <!--grant
       permission="quotationtool.commentary.EditComment"
       role="quotationtool.Editor"
-      />
+      /-->
 
   <grant
       permission="quotationtool.commentary.EditComment"

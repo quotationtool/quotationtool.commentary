@@ -8,6 +8,8 @@ from zope.intid.interfaces import IIntIds
 
 from quotationtool.renderer.interfaces import IHTMLRenderer
 
+from quotationtool.commentary.interfaces import _
+
 
 class MetaView(BrowserView):
     """ Show meta data on comment."""
@@ -16,6 +18,12 @@ class MetaView(BrowserView):
 
     def __call__(self):
         return self.template()
+
+
+class LabelView(BrowserView):
+
+    def __call__(self):
+        return _('comment-label', u"Comment")
 
 
 class RenderComment(object):

@@ -43,7 +43,7 @@
       provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
       factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
       />
-  <adapter
+  <!--adapter
       for="..interfaces.ICommentable
            zope.publisher.interfaces.browser.IBrowserRequest
            .form.EditComment
@@ -51,6 +51,6 @@
            .tabs.ICommentableTab"
       provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
       factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
-      />
+      /-->
 
 </configure>

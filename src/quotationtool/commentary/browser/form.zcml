@@ -13,13 +13,13 @@
       permission="quotationtool.commentary.AddComment"
       />
 
-  <!--z3c:pagelet
-      for="..interfaces.ICommentable"
-      name="editComment.html"
-      class=".form.AddComment"
+  <z3c:pagelet
+      for="..interfaces.IComment"
+      name="edit.html"
+      class=".form.SimpleEditForm"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
       permission="quotationtool.commentary.EditComment"
-      /-->
+      />
 
   <zope:resourceLibrary
       name="quotationtool.tinymce.Comment"

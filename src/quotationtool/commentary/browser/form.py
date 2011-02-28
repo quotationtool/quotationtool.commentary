@@ -59,11 +59,15 @@ class AddComment(form.AddForm):
         return absoluteURL(self.context, self.request) + u"/@@comments.html"
 
 
-class EditComment(form.EditForm):
-
-    zope.interface.implements(ITabbedContentLayout)
+class SimpleEditForm(form.EditForm):
 
     label = _('comment-edit-label', u"Change comment")
 
-    fields = field.Fields(interfaces.IComment).select('comment', 'source_type')
+    fields = field.Fields(interfaces.IComment).select('comment')
 
+    def __init__(self, context, request):
+        super(SimpleEditForm, self).__init__(context, request)
+        zc.resourcelibrary.need('quotationtool.tinymce.Comment')
+
+    def nextURL(self):
+        return absoluteURL(self.context.about, self.request)

@@ -2,9 +2,12 @@ import zope.interface
 import zope.schema
 from zope.container.interfaces import IContained, IContainer
 from zope.container.constraints import containers, contains
+from zope.i18nmessageid import MessageFactory
 
-from i18n import _
 from quotationtool.relation.schema import Relation
+
+
+_ = MessageFactory('quotationtool')
 
 
 class ICommentSourceFactory(zope.interface.Interface):

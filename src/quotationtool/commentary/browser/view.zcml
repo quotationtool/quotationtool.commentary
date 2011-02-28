@@ -15,6 +15,14 @@
 
   <zope:view
       for="..interfaces.IComment"
+      name="label"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      factory=".view.LabelView"
+      />
+
+  <zope:view
+      for="..interfaces.IComment"
       name="details"
       type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
       permission="zope.View"

@@ -19,9 +19,23 @@
       Quotation Text
     </div>
 
-    <hr class="commentary-ruler"/>
+    <div class="comment-meta" 
+	 tal:content="structure view/comment/@@commentmeta"/>
 
-    <div tal:content="structure view/comment/@@commentmeta"/>
+    <div
+	class="comment-edit-button"
+	tal:condition="view/canEdit|nothing">
+      <form action="" class="edit-comment-link"
+	  tal:attributes="action string:${view/comment/@@absolute_url}/@@edit.html"
+	  >
+	<input 
+	    type="submit" class="submit-widget button-field" value="Edit"
+	    name="form.widgets.edit-comment" id="form.widgets.edit-comment"
+	    i18nattributes="value Edit"/>
+      </form>
+    </div>
+
+    <hr class="commentary-ruler"/>
 
     <div
 	class="more-links">

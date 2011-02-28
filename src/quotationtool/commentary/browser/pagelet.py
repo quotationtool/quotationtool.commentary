@@ -5,6 +5,8 @@ from zope.proxy import removeAllProxies
 import zc.relation
 from zope.intid.interfaces import IIntIds
 from zope.exceptions.interfaces import UserError
+from zope.intid.interfaces import IIntIds
+import zope.security
 
 from quotationtool.renderer.interfaces import IHTMLRenderer
 from quotationtool.skin.interfaces import ITabbedContentLayout
@@ -67,3 +69,13 @@ class SingleCommentPagelet(BrowserPagelet):
             (removeAllProxies(source), self.request),
             IHTMLRenderer, name = u'')
         return renderer.render(limit = self.limit)
+
+    def id(self):
+        ids = zope.component.getUtility(
+            IIntIds, context = self.context)
+        return ids.getId(self.comment)
+
+    def canEdit(self):
+        interaction = zope.security.management.getInteraction()
+        return interaction.checkPermission('quotationtool.commentary.EditComment', self.comment)
+
