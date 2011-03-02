@@ -1,0 +1,8 @@
+<span class="is-commented" i18n:domain="quotationtool"
+      tal:define="count view/count"
+      tal:condition="count|nothing">
+  <abbr title="Number of Comments"
+	i18n:attributes="title iscommented-abbr"
+	>C</abbr>:<tal:block 
+	content="count|nothing">2</tal:block>
+</span>

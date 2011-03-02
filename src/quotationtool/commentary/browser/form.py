@@ -6,6 +6,7 @@ from zope.intid.interfaces import IIntIds
 from zope.exceptions.interfaces import UserError
 from z3c.formui import form
 from z3c.form import field
+from z3c.form.interfaces import DISPLAY_MODE
 from zope.securitypolicy.interfaces import IPrincipalRoleManager
 from zope.container.interfaces import INameChooser
 from zope.traversing.browser import absoluteURL
@@ -63,11 +64,15 @@ class SimpleEditForm(form.EditForm):
 
     label = _('comment-edit-label', u"Change comment")
 
-    fields = field.Fields(interfaces.IComment).select('comment')
+    fields = field.Fields(interfaces.IComment).select('comment')#, 'source_type')
 
     def __init__(self, context, request):
         super(SimpleEditForm, self).__init__(context, request)
         zc.resourcelibrary.need('quotationtool.tinymce.Comment')
+
+    def updateWidgetsOFF(self):
+        super(SimpleEditForm, self).updateWidgets()
+        self.widgets['source_type'].mode = DISPLAY_MODE
 
     def nextURL(self):
         return absoluteURL(self.context.about, self.request)
