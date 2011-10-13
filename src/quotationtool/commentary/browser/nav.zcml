@@ -1,0 +1,43 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="quotationtool">
+
+  <!-- commentary -->
+  <z3c:siteMenuItem
+      for="*"
+      title="[mainnav-commentary] Commentary"
+      name="commentary"
+      class=".nav.CommentaryMainNavItem"
+      permission="quotationtool.commentary.Overview"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      manager="quotationtool.skin.interfaces.IMainNav"
+      viewName="comments/@@table.html"
+      weight="40"
+      subMenuProviderName="commentarysubnav"
+      />
+  <!-- adaptation: context, request, view, menu, item. See
+       z3c.menu.ready2go.checker for more info. -->
+  <adapter
+      for="..interfaces.ICommentContainer
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.interface.Interface
+           quotationtool.skin.interfaces.IMainNav
+           .nav.ICommentaryMainNavItem"
+      provides="z3c.menu.ready2go.interfaces.ISelectedChecker"
+      factory="z3c.menu.ready2go.checker.TrueSelectedChecker"
+      />
+
+
+  <!-- bibliography subnav-->
+
+  <browser:viewletManager
+      name="commentarysubnav"
+      class=".nav.CommentarySubNav"
+      provides=".nav.ICommentarySubNav"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      />
+
+</configure>

@@ -19,6 +19,10 @@ class CommentContainerFrontpage(BrowserPagelet):
     """A frontpage for the commentary container."""
 
 
+class CommentContainerPagelet(BrowserPagelet):
+    """A list of all comments in the database. """
+
+
 class CommentsPagelet(BrowserPagelet):
     """A list of the comments about a commentable object.  This view
     takes a commentable object as context."""

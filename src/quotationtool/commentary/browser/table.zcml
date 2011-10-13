@@ -1,0 +1,65 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="quotationtool">
+
+  <z3c:pagelet
+      for="..interfaces.ICommentContainer"
+      name="table.html"
+      class=".table.CommentaryTable"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="quotationtool.commentary.Overview"
+      />
+  <z3c:template
+      for=".table.CommentaryTable"
+      layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      template="table.pt"
+      />
+
+  <adapter
+      for="*
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           .table.ICommentsTable
+           .table.ISortingColumn"
+      provides="z3c.table.interfaces.IColumnHeader"
+      factory="quotationtool.skin.browser.table.SortingColumnHeader"
+      />
+
+  <adapter
+      name="text"
+      for="*
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           .table.ICommentsTable"
+      provides="z3c.table.interfaces.IColumn"
+      factory=".table.TextColumn"
+      />
+
+  <adapter
+      name="creator"
+      for="*
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           .table.ICommentsTable"
+      provides="z3c.table.interfaces.IColumn"
+      factory=".table.CreatorColumn"
+      />
+
+  <adapter
+      name="created"
+      for="*
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           .table.ICommentsTable"
+      provides="z3c.table.interfaces.IColumn"
+      factory=".table.CreatedColumn"
+      />
+
+  <adapter
+      name="modified"
+      for="*
+           quotationtool.skin.interfaces.IQuotationtoolBrowserLayer
+           .table.ICommentsTable"
+      provides="z3c.table.interfaces.IColumn"
+      factory=".table.ModifiedColumn"
+      />
+
+</configure>

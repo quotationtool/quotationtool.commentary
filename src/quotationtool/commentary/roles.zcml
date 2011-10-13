@@ -3,6 +3,36 @@
     i18n_domain="quotationtool">
 
   <grant
+      permission="quotationtool.commentary.Read"
+      role="quotationtool.Visitor"
+      />
+
+  <grant
+      permission="quotationtool.commentary.Read"
+      role="quotationtool.Member"
+      />
+
+  <grant
+      permission="quotationtool.commentary.Read"
+      role="quotationtool.Editor"
+      />
+
+  <grant
+      permission="quotationtool.commentary.Read"
+      role="quotationtool.Manager"
+      />
+
+  <grant
+      permission="quotationtool.commentary.Overview"
+      role="quotationtool.Editor"
+      />
+
+  <grant
+      permission="quotationtool.commentary.Overview"
+      role="quotationtool.Manager"
+      />
+
+  <grant
       permission="quotationtool.commentary.AddComment"
       role="quotationtool.Member"
       />

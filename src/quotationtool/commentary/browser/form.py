@@ -76,3 +76,39 @@ class SimpleEditForm(form.EditForm):
 
     def nextURL(self):
         return absoluteURL(self.context.about, self.request)
+
+
+class EditFormOFF(form.EditForm):
+    """ Edit the comment in the context of the commented item.
+
+    TODO: How to get permission right???"""
+
+    zope.interface.implements(ITabbedContentLayout)
+
+    label = _('comment-edit-label', u"Change comment")
+
+    fields = field.Fields(interfaces.IComment).select('comment')#, 'source_type')
+
+    def __init__(self, context, request):
+        super(SimpleEditForm, self).__init__(context, request)
+        zc.resourcelibrary.need('quotationtool.tinymce.Comment')
+
+    def getContent(self):
+        comment_id = self.request.form.get('id', None)
+        try:
+            comment_id = int(comment_id)
+            intids = zope.component.getUtility(
+                IIntIds, context=self.context)
+            self.comment = intids.queryObject(id, default = None)
+            if not interfaces.IComment.providedBy(self.comment):
+                raise Exception
+        except:
+            raise UserError(_(u"Invalid object ID"))
+        return self.comment
+
+    def updateWidgetsOFF(self):
+        super(SimpleEditForm, self).updateWidgets()
+        self.widgets['source_type'].mode = DISPLAY_MODE
+
+    def nextURL(self):
+        return absoluteURL(self.context.about, self.request)

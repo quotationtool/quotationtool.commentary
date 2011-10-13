@@ -6,6 +6,14 @@
     i18n_domain="quotationtool">
 
   <zope:view
+      for="..interfaces.ICommentContainer"
+      name="label"
+      type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
+      permission="zope.View"
+      factory=".view.ContainerLabelView"
+      />
+
+  <zope:view
       for="..interfaces.IComment"
       name="commentmeta"
       type="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"

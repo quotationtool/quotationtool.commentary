@@ -3,6 +3,18 @@
     i18n_domain="quotationtool">
 
   <permission
+      id="quotationtool.commentary.Read"
+      title="[read-comments-permission-title]
+	     Read comments on an item."
+      />
+
+  <permission
+      id="quotationtool.commentary.Overview"
+      title="[list-comments-permission-title]
+	     Read lists of comments, i.e. access and read the comments container, not only reading comments on a single item."
+      />
+
+  <permission
       id="quotationtool.commentary.AddComment"
       title="[add-comment-permission-title] 
 	     Write a commentary"

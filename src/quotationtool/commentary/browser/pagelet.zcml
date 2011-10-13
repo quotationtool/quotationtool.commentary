@@ -10,7 +10,7 @@
       name="index.html"
       class=".pagelet.CommentContainerFrontpage"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="zope.View"
+      permission="quotationtool.commentary.Read"
       />
   <z3c:template
       for=".pagelet.CommentContainerFrontpage"
@@ -23,7 +23,7 @@
       name="comments.html"
       class=".pagelet.CommentsPagelet"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="zope.View"
+      permission="quotationtool.commentary.Read"
       />
   <z3c:template
       for=".pagelet.CommentsPagelet"
@@ -36,7 +36,7 @@
       name="comment.html"
       class=".pagelet.SingleCommentPagelet"
       layer="quotationtool.skin.interfaces.IQuotationtoolBrowserLayer"
-      permission="zope.View"
+      permission="quotationtool.commentary.Read"
       />
   <z3c:template
       for=".pagelet.SingleCommentPagelet"

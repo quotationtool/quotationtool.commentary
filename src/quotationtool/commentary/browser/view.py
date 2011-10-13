@@ -26,6 +26,12 @@ class LabelView(BrowserView):
         return _('comment-label', u"Comment")
 
 
+class ContainerLabelView(BrowserView):
+    
+    def __call__(self):
+        return _('commentcontainer-label', u"Comments")
+
+
 class RenderComment(object):
     """A mixin class that provides a method for rendering the
     comment text."""
